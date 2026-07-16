@@ -1,0 +1,23 @@
+name: Security Review
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check file names and whitespace
+        run: |
+          ! git ls-files | grep -E '(^|/)(\.env|id_rsa|known_hosts|.*\.(log|wdb|vcd|bit|xsa))$'
+          git diff --check origin/main...HEAD
+      - name: Check public tree for sensitive patterns
+        run: |
+          ! git grep -nEI '(token|secret|password)\s*[:=]\s*[^$ ]+|gh[pousr]_[A-Za-z0-9_]{20,}|-----BEGIN .*PRIVATE KEY-----|[A-Za-z]:\\Users\\'

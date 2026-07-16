@@ -1,0 +1,20 @@
+name: Bug report
+description: Report a reproducible defect without publishing sensitive data.
+title: '[Bug]: '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: Do not include credentials, private keys, personal data, or proprietary course materials.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
