@@ -20,4 +20,4 @@ jobs:
           git diff --check origin/main...HEAD
       - name: Check public tree for sensitive patterns
         run: |
-          ! git grep -nEI '(token|secret|password)\s*[:=]\s*[^$ ]+|gh[pousr]_[A-Za-z0-9_]{20,}|-----BEGIN .*PRIVATE KEY-----|[A-Za-z]:\\Users\\'
+          ! git grep -nEI '(token|secret|password)\s*[:=]\s*[^$ ]+|gh[pousr]_[A-Za-z0-9_]{20,}|-----BEGIN .*PRIVATE KEY-----|[A-Za-z]:\\Users\\' -- ':!.github/workflows/security-review.yml'
