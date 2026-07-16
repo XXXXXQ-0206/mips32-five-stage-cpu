@@ -1,0 +1,35 @@
+# Tool output
+*.log
+*.jou
+*.str
+*.wdb
+*.vcd
+*.vpd
+*.fst
+*.bit
+*.bin
+*.mcs
+*.xsa
+
+# Xilinx/Vivado generated directories
+.Xil/
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+
+# Editor and local files
+.vscode/
+.idea/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.swp
+*.tmp
+*.bak
+
+# Local release-audit artifacts
+docs/rtl-source-manifest.sha256
+artifacts/
